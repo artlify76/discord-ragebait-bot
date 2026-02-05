@@ -10,18 +10,16 @@ pip install -r requirements.txt
 ```
 
 ### 2. Get Your NVIDIA NIM API Key
-
+[![NVIDIA API Key Tutorial](https://img.shields.io/badge/YouTube-Watch%20Tutorial-red?logo=youtube)](YOUR_YOUTUBE_LINK_HERE)
 
 1. Visit [NVIDIA Build](https://build.nvidia.com/)
 2. Sign up or log in to your account
-3. Generate an API key from the dashboard
-4. Copy your API key
+3. Navigate to the API Keys section
+4. Generate a new API key
+5. Copy the full API key
 
 ### 3. Get Your Discord User Token
-[![Discord User Token Tutorial](https://img.shields.io/badge/YouTube-Watch%20Tutorial-red?logo=youtube)]
-https://www.youtube.com/watch?v=5SRwnLYdpJs
-
-[Add your YouTube tutorial link here]
+[![Discord User Token Tutorial](https://img.shields.io/badge/YouTube-Watch%20Tutorial-red?logo=youtube)](YOUR_YOUTUBE_LINK_HERE)
 
 1. Open Discord in your browser
 2. Press `F12` to open Developer Tools
@@ -29,10 +27,10 @@ https://www.youtube.com/watch?v=5SRwnLYdpJs
 4. Send a message in any channel
 5. Look for a request to `https://discord.com/api/v*/messages`
 6. In request headers, find the `Authorization` header
-7. Copy the token value (it starts with your user ID)
+7. Copy the token value
 
-### 4. Configure the Bot
-Create a `config.json` file in the root directory:
+### 4. Create config.json
+Create a `config.json` file in the root directory and add your keys:
 
 ```json
 {
@@ -41,9 +39,10 @@ Create a `config.json` file in the root directory:
 }
 ```
 
+Replace the placeholders with your actual tokens from steps 2 and 3.
+
 ### 5. Start the Bot
 ```bash
-cd /Users/damirshigayev/discord-ai-self
 python3 main.py
 ```
 
