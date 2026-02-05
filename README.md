@@ -25,12 +25,8 @@ A Discord selfbot powered by NVIDIA's AI API that can respond to messages and ha
    - In the request headers, find `Authorization` and copy the token
 
 3. **Get your NVIDIA API key:**
-   - Go to [NVIDIA AI Foundation](https://build.nvidia.com/)
-   - Create an account and get your API key
-   - Set it as an environment variable:
-     ```bash
-     export NVIDIA_API_KEY='your_api_key_here'
-     ```
+    - Go to [NVIDIA AI Foundation](https://build.nvidia.com/)
+    - Create an account and get your API key
 
 4. **Run the bot:**
    ```bash
