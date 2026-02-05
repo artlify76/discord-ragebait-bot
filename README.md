@@ -1,50 +1,125 @@
 # Discord AI Selfbot
 
-A Discord selfbot powered by NVIDIA's AI API that can respond to messages and have conversations.
+A Discord selfbot powered by NVIDIA's AI API with multiple response modes and context-aware messaging.
 
 ## Features
 
 - 🤖 AI-powered responses using NVIDIA's API
-- 💬 Responds to mentions and direct messages
+- 🧠 Context-aware with persistent message history
+- 🎭 Multiple response personalities (normal, gag, stealth, spawn)
+- 🖼️ Image processing with NVIDIA vision API
+- 📊 SQLite-based message tracking
+- 🔇 Stealth modes with no visible traces
 - ⚡ Real-time AI conversations
-- 🔧 Easy setup and configuration
 
 ## Setup
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-2. **Get your Discord user token:**
-   - Open Discord in your browser
-   - Press F12 to open Developer Tools
-   - Go to Network tab
-   - Send a message in any channel
-   - Look for a request to `https://discord.com/api/v*/messages`
-   - In the request headers, find `Authorization` and copy the token
+### 2. Get Your NVIDIA API Key
+[![NVIDIA API Key Tutorial](https://img.shields.io/badge/YouTube-Watch%20Tutorial-red?logo=youtube)](YOUR_YOUTUBE_LINK_HERE)
 
-3. **Get your NVIDIA API key:**
-    - Go to [NVIDIA AI Foundation](https://build.nvidia.com/)
-    - Create an account and get your API key
+1. Visit [NVIDIA Build](https://build.nvidia.com/)
+2. Sign up or log in to your account
+3. Navigate to the API Keys section
+4. Generate a new API key
+5. Copy the full API key
 
-4. **Run the bot:**
-   ```bash
-   python main.py
-   ```
+### 3. Get Your Discord User Token
+[![Discord User Token Tutorial](https://img.shields.io/badge/YouTube-Watch%20Tutorial-red?logo=youtube)](YOUR_YOUTUBE_LINK_HERE)
 
-## Usage
+1. Open Discord in your browser
+2. Press `F12` to open Developer Tools
+3. Go to the **Network** tab
+4. Send a message in any channel
+5. Look for a request to `https://discord.com/api/v*/messages`
+6. In request headers, find the `Authorization` header
+7. Copy the token value
 
-See [USAGE.md](USAGE.md) for detailed command documentation and modes.
+### 4. Create config.json
+Create a `config.json` file in the root directory and add your keys:
 
-## Available Models
+```json
+{
+  "discord_token": "YOUR_DISCORD_TOKEN_HERE",
+  "nvidia_api_key": "YOUR_NVIDIA_API_KEY_HERE"
+}
+```
 
-You can change the AI model in `main.py` by modifying the `model` field:
-- `meta/llama-3.1-405b-instruct` (default)
-- `meta/llama-3.1-70b-instruct`
-- `meta/llama-3.1-8b-instruct`
-- `microsoft/phi-3-medium-128k-instruct`
-- And many more available on NVIDIA's platform
+Replace the placeholders with your actual tokens from steps 2 and 3.
+
+### 5. Start the Bot
+```bash
+python3 main.py
+```
+
+## Commands
+
+### Core Modes
+
+| Command | Description |
+|---------|-------------|
+| `$lock` | Lock channel for normal AI responses |
+| `$unlock` | Unlock channel |
+| `$gaglock` | Enable annoying, condescending AI mode |
+| `$gagunlock` | Disable gag mode |
+| `$gagtestlock` | Gag mode + responds to your messages |
+| `$gagtestunlock` | Disable gag test mode |
+| `$silentgaglock` / `$sgaglock` | Stealth gag mode (no visible traces) |
+| `$silentgagunlock` / `$sgagunlock` | Disable silent gag mode |
+| `$swglock` | Super stealth mode (short replies, no typing indicator) |
+| `$swgunlock` | Disable super stealth mode |
+| `$v2lock` | V2 enhanced mode (1-5 word responses + memory + image analysis) |
+| `$v2unlock` | Disable V2 mode |
+| `$spawnlock` | Spawn cult roasting mode |
+| `$spawnunlock` | Disable spawn mode |
+
+### Chat & Utility
+
+| Command | Description |
+|---------|-------------|
+| `$ai <prompt>` | Chat with AI directly |
+| `$hello` | Greeting |
+| `$help` | Show all commands |
+
+### Message Scraping
+
+| Command | Description |
+|---------|-------------|
+| `$scrape` | Silently scrape all messages from current channel |
+| `$scrape <number>` | Scrape specific number of messages |
+| `$scrapestats` | Show scraping database statistics (console only) |
+
+## How It Works
+
+### Context-Aware Responses
+- **Gaglock modes** store up to 100 messages of context per channel
+- Bot remembers usernames and conversation history
+- Responses are tailored to ongoing conversations
+
+### Multiple Response Personalities
+- **Normal Mode**: Helpful AI assistant
+- **Gag Mode**: Annoying, condescending know-it-all
+- **Super Stealth**: Short, dismissive replies
+- **V2 Mode**: Ultra-stealthy 1-5 word responses with image analysis
+- **Spawn Mode**: Cult mockery responses
+
+### Image Processing
+- V2 mode analyzes images using NVIDIA's vision API
+- Contextualizes image content in responses
+
+### Message Database
+- Persistent SQLite databases for each mode
+- Automatic message retention (100-200 messages per channel)
+- User identification and history tracking
+
+### Stealth Modes
+- Silent gag lock: Responds without visible traces
+- Super stealth: No typing indicator, minimal responses
+- V2 mode: Maximum stealth with context awareness
 
 ## ⚠️ Important Notes
 
@@ -53,6 +128,6 @@ You can change the AI model in `main.py` by modifying the `model` field:
 - Use at your own risk and for educational purposes only
 - Don't use this on servers where it might cause issues
 
-## Configuration
+## Support
 
-You can customize the AI behavior by modifying the system prompt in the `get_ai_response` function.
+For issues or questions, check the console output for debug messages (prefixed with `DEBUG:` or `[SCRAPER]`).
