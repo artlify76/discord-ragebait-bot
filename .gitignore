@@ -1,0 +1,9 @@
+config.json
+*.db
+bot.log
+*.log
+__pycache__/
+*.pyc
+.env
+pat.txt
+MC-Bodyguard/
