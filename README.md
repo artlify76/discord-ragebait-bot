@@ -35,12 +35,7 @@ A Discord selfbot powered by NVIDIA's AI API that can respond to messages and ha
 
 ## Usage
 
-- **Mention the bot** in any channel: `@YourUsername hello`
-- **Send a DM** to your account
-- **Commands:**
-  - `hello/hi/hey` - Greeting
-  - `help/commands` - Show available commands
-  - Any other message - AI-powered response
+See [USAGE.md](USAGE.md) for detailed command documentation and modes.
 
 ## Available Models
 
